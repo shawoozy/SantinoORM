@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:2.0.5-sdk-2.1.4
+      
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      
+      - run:
+          name: check dir
+          command: ls                    
+
+      - run:
+          name: Running tests
+          command: dotnet test SantinoORM.Test/SantinoORM.Test.csproj
